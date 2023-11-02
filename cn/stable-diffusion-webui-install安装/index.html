@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head>
+  <!-- Google Analytics -->
+  
+
+  <!-- Baidu Tongji -->
+  
+
+  <!-- Baidu Push -->
+  
+    <script>
+      (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+      })();
+    </script>
+  
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+  <meta name="google-site-verification" content="lxDfCplOZbIzjhG34NuQBgu2gdyRlAtMB4utP5AgEBc"/>
+  <meta name="baidu-site-verification" content="PpzM9WxOJU"/>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="description" content="syboot linux linux配置 linux软件 linux桌面  It&#39;s an IT blog..."/>
+  <meta name="keyword" content="syboot,linux,linux配置,linux软件,linux桌面"/>
+  <link rel="shortcut icon" href="/img/avatar/syboot.png"/>
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script>
+
+  
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css"/>
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css"/>
+    <link rel="stylesheet" href="/css/widget.css"/>
+    <link rel="stylesheet" href="/css/rocket.css"/>
+    <link rel="stylesheet" href="/css/signature.css"/>
+    <link rel="stylesheet" href="/css/catalog.css"/>
+    <link rel="stylesheet" href="/css/livemylife.css"/>
+
+    
+      <!-- wave start -->
+      <link rel="stylesheet" href="/css/wave.css"/>
+      <!-- wave end -->
+    
+
+    
+      <!-- top start (article top hot config) -->
+      <link rel="stylesheet" href="/css/top.css"/>
+      <!-- top end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/scroll.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+      <!-- viewer start (Picture preview) -->
+      <link rel="stylesheet" href="/css/viewer.min.css"/>
+      <!-- viewer end -->
+    
+
+    
+      <!-- Search start -->
+      <link rel="stylesheet" href="/css/search.css"/>
+      <!-- Search end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/themecolor.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+
+    
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="http://syboot.github.io/cn/stable-diffusion-webui-install安装/">
+  <title>
+    
+      stable-diffusion-webui-inatall安装 for windows - syboot linux linux配置 linux软件 linux桌面
+    
+  </title>
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<!-- hack iOS CSS :active style -->
+
+	<body ontouchstart="" class="body--light body--dark">
+
+
+		<!-- ThemeColor -->
+		
+		<!-- ThemeColor -->
+<style type="text/css">
+  .body--light {
+    --light-mode: none;
+    --dark-mode: block;
+  }
+  .body--dark {
+    --light-mode: block;
+    --dark-mode: none;
+  }
+  i.mdui-icon.material-icons.light-mode {
+    display: var(--light-mode);
+  }
+  i.mdui-icon.material-icons.dark-mode {
+    display: var(--dark-mode);
+  }
+</style>
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons light-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+<script>
+  //getCookieValue
+  function getCookieValue(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b
+      ? b.pop()
+      : '';
+  }
+  let themeMode = 'dark';
+  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
+    let dbody = document.body.classList;
+    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
+  }
+
+  //setCookieValue
+  var toggleBtn = document.querySelector(".toggle");
+  toggleBtn.addEventListener("click", function () {
+    var e = document.body.classList.contains("body--dark");
+    var cookieString = e
+      ? "dark"
+      : "light";
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
+    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
+  });
+</script>
+
+		
+
+		<!-- Gitter -->
+		
+
+		<!-- Navigation (contains search)-->
+		<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">syboot</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux: <nav>'s height woule be hold on by its content. so, when navbar scale out, the <nav> will cover tags. also mask any touch event of tags, unfortunately. -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">首页</a>
+          </li>
+
+          
+          
+          
+          
+          <li>
+            <a href="/about/">
+              
+              关于
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              归档
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              分类
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              标签
+              
+              
+            </a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a class="popup-trigger">
+              <span class="search-icon"></span>搜索</a>
+          </li>
+          
+
+          <!-- LangSelect -->
+          
+          
+          
+          
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+<script>
+  // Drop Bootstarp low-performance Navbar Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+		<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+		<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    .body--light {
+      /* intro-header */
+      --intro-header-background-image-url-home: url('/img/header_img/home_bg.jpg');
+      --intro-header-background-image-url-post: url('');
+      --intro-header-background-image-url-page: url('/img/header_img/archive_bg.jpg');
+    }
+    .body--dark {
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/home_bg.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/archive_bg.jpg');
+    }
+
+    header.intro-header {
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url(''); */
+      
+    }
+
+    
+      #signature {/*signature*/
+        background-image: url('/img/signature/syboot-white.png');
+      }
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#stable-diffusion" title="stable-diffusion">stable-diffusion</a>
+              
+            </div>
+            <h1>stable-diffusion-webui-inatall安装 for windows</h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">
+              Posted by syboot on
+              2023-10-01
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">26</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">4.4k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+		<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
+
+        <h2 id="stable-diffusion-webui-inatall安装-for-windows">stable-diffusion-webui-inatall安装 for windows</h2>
+<pre><code>Stable Diffusion是一款功能异常强大的AI图片生成器。它不仅支持生成图片，使用各种各样的模型来达到你想要的效果，还能训练你自己的专属模型。
+
+WebUI使得Stable Diffusion有了一个更直观的用户界面，更适合新手用户。 
+</code></pre>
+<h3 id="一-安装CUDA-and-cuDNN">一 安装CUDA and cuDNN</h3>
+<pre><code>一.安装CUDA
+1.1 下载驱动
+
+https://developer.download.nvidia.com/compute/cuda/12.3.0/local_installers/cuda_12.3.0_545.84_windows.exe
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://developer.download.nvidia.com/compute/cuda/12.3.0/local_installers/cuda_12.3.0_545.84_windows.exe">前往下载页面 cuda_12.3.0_545.84_windows.exe</a></p>
+<pre><code>1.2添加环境变量：
+
+1.2.1系统变量PATH中加入如下：
+C:\Program Files\NVIDIA Corporation\Nsight Compute 2023.2.2\
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.2\bin
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.2\include
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.2\lib
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.2\libnvvp
+C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR
+
+1.2.2添加环境：
+CUDA_PATH=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.2
+CUDA_PATH_V12_2=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.2
+
+1.2.3检查CUDA 10.2是否安装成功
+Windows+R或者搜索栏输入cmd，打开命令提示符
+nvcc -V
+看到CUDA版本信息，则说明安装成功
+
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2023 NVIDIA Corporation
+Built on Tue_Aug_15_22:09:35_Pacific_Daylight_Time_2023
+Cuda compilation tools, release 12.2, V12.2.140
+Build cuda_12.2.r12.2/compiler.33191640_0
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">样例：</span><br><span class="line">PS C:\Users\xxx&gt; nvidia-smi</span><br><span class="line">Sat Apr  1 14:02:38 2023</span><br><span class="line">+-----------------------------------------------------------------------------+</span><br><span class="line">| NVIDIA-SMI 472.84       Driver Version: 472.84       CUDA Version: 11.4     |</span><br><span class="line">|-------------------------------+----------------------+----------------------+</span><br><span class="line">| GPU  Name            TCC/WDDM | Bus-Id        Disp.A | Volatile Uncorr. ECC |</span><br><span class="line">| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |</span><br><span class="line">|                               |                      |               MIG M. |</span><br><span class="line">|===============================+======================+======================|</span><br><span class="line">|   0  NVIDIA GeForce ... WDDM  | 00000000:01:00.0 Off |                  N/A |</span><br><span class="line">| N/A    0C    P8    N/A /  N/A |     75MiB /  4096MiB |      0%      Default |</span><br><span class="line">|                               |                      |                  N/A |</span><br><span class="line">+-------------------------------+----------------------+----------------------+</span><br><span class="line"></span><br><span class="line">+-----------------------------------------------------------------------------+</span><br><span class="line">| Processes:                                                                  |</span><br><span class="line">|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |</span><br><span class="line">|        ID   ID                                                   Usage      |</span><br><span class="line">|=============================================================================|</span><br><span class="line">|    0   N/A  N/A     14052    C+G   ...IA GeForce Experience.exe    N/A      |</span><br><span class="line">+-----------------------------------------------------------------------------+</span><br></pre></td></tr></table></figure>
+
+二.配置cuDNN v8.9.0
+
+https://developer.download.nvidia.cn/compute/cudnn/redist/cudnn/windows-x86_64/cudnn-windows-x86_64-8.9.5.30_cuda12-archive.zip
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://developer.download.nvidia.cn/compute/cudnn/redist/cudnn/windows-x86_64/cudnn-windows-x86_64-8.9.5.30_cuda12-archive.zip">前往下载页面 cudnn-windows-x86_64-8.9.5.30_cuda12-archive.zip</a></p>
+<pre><code>2.1将之前下载的cuDNN压缩文件进行解压，复制其中的三个文件夹到C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.2
+</code></pre>
+<h3 id="二-安装GIT-for-windows">二 安装GIT for windows</h3>
+<pre><code>一.安装GIT
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://github.com/git-for-windows/git/releases/download/v2.42.0.windows.2/Git-2.42.0.2-64-bit.exe">前往下载页面 Download GIT for Windows</a></p>
+<pre><code>添加环境变量：c:\Program Files\Git\cmd
+
+二.安装SD
+
+2.1 install  python 3.10  
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://www.python.org/ftp/python/3.10.11/python-3.10.11-amd64.exe">前往下载页面 Download Windows Python 3.10.11 installer (64-bit)</a></p>
+<pre><code>添加PATH变量： 
+D:\Program Files\python310\Scripts\
+D:\Program Files\python310\
+</code></pre>
+<h3 id="三-install-Stable-diffusion">三 install  Stable diffusion</h3>
+<pre><code>一. 下载Stable diffusion + webui
+
+git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
+
+cd stable-diffusion-webui
+ls
+
+二.python venv 位置
+
+info:主要看注释部分
+
+cat webui-user.bat
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> not defined PYTHON (<span class="built_in">set</span> PYTHON=python)</span><br><span class="line"><span class="keyword">if</span> not defined VENV_DIR (<span class="built_in">set</span> <span class="string">&quot;VENV_DIR=%~dp0%venv&quot;</span>)  <span class="comment">#默认为在stable-diffusion-webui目录下建立一个 VENV的文件夹，用来安装python 的虚拟环境。</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> SD_WEBUI_RESTART=tmp/restart</span><br><span class="line"><span class="built_in">set</span> ERROR_REPORTING=FALSE</span><br><span class="line"></span><br><span class="line"><span class="built_in">mkdir</span> tmp 2&gt;NUL</span><br><span class="line"></span><br><span class="line">%PYTHON% -c <span class="string">&quot;&quot;</span> &gt;tmp/stdout.txt 2&gt;tmp/stderr.txt</span><br><span class="line"><span class="keyword">if</span> %ERRORLEVEL% == 0 goto :check_pip</span><br><span class="line"><span class="built_in">echo</span> Couldn<span class="string">&#x27;t launch python</span></span><br><span class="line"><span class="string">goto :show_stdout_stderr</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">:check_pip</span></span><br><span class="line"><span class="string">%PYTHON% -mpip --help &gt;tmp/stdout.txt 2&gt;tmp/stderr.txt</span></span><br><span class="line"><span class="string">if %ERRORLEVEL% == 0 goto :start_venv</span></span><br><span class="line"><span class="string">if &quot;%PIP_INSTALLER_LOCATION%&quot; == &quot;&quot; goto :show_stdout_stderr</span></span><br><span class="line"><span class="string">%PYTHON% &quot;%PIP_INSTALLER_LOCATION%&quot; &gt;tmp/stdout.txt 2&gt;tmp/stderr.txt</span></span><br><span class="line"><span class="string">if %ERRORLEVEL% == 0 goto :start_venv</span></span><br><span class="line"><span class="string">echo Couldn&#x27;</span>t install pip</span><br><span class="line">goto :show_stdout_stderr</span><br><span class="line"></span><br><span class="line">:start_venv</span><br><span class="line"><span class="keyword">if</span> [<span class="string">&quot;%VENV_DIR%&quot;</span>] == [<span class="string">&quot;-&quot;</span>] goto :skip_venv</span><br><span class="line"><span class="keyword">if</span> [<span class="string">&quot;%SKIP_VENV%&quot;</span>] == [<span class="string">&quot;1&quot;</span>] goto :skip_venv</span><br><span class="line"></span><br><span class="line"><span class="built_in">dir</span> <span class="string">&quot;%VENV_DIR%\Scripts\Python.exe&quot;</span> &gt;tmp/stdout.txt 2&gt;tmp/stderr.txt</span><br><span class="line"><span class="keyword">if</span> %ERRORLEVEL% == 0 goto :activate_venv</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> /f <span class="string">&quot;delims=&quot;</span> %%i <span class="keyword">in</span> (<span class="string">&#x27;CALL %PYTHON% -c &quot;import sys; print(sys.executable)&quot;&#x27;</span>) <span class="keyword">do</span> <span class="built_in">set</span> PYTHON_FULLNAME=<span class="string">&quot;%%i&quot;</span></span><br><span class="line"><span class="built_in">echo</span> Creating venv <span class="keyword">in</span> directory %VENV_DIR% using python %PYTHON_FULLNAME%</span><br><span class="line">%PYTHON_FULLNAME% -m venv <span class="string">&quot;%VENV_DIR%&quot;</span> &gt;tmp/stdout.txt 2&gt;tmp/stderr.txt</span><br><span class="line"><span class="keyword">if</span> %ERRORLEVEL% == 0 goto :activate_venv</span><br><span class="line"><span class="built_in">echo</span> Unable to create venv <span class="keyword">in</span> directory <span class="string">&quot;%VENV_DIR%&quot;</span></span><br><span class="line">goto :show_stdout_stderr</span><br><span class="line"></span><br><span class="line">:activate_venv</span><br><span class="line"><span class="built_in">set</span> PYTHON=<span class="string">&quot;%VENV_DIR%\Scripts\Python.exe&quot;</span></span><br><span class="line"><span class="built_in">echo</span> venv %PYTHON%</span><br><span class="line"></span><br><span class="line">:skip_venv</span><br><span class="line"><span class="keyword">if</span> [%ACCELERATE%] == [<span class="string">&quot;True&quot;</span>] goto :accelerate</span><br><span class="line">goto :launch</span><br><span class="line"></span><br><span class="line">:accelerate</span><br><span class="line"><span class="built_in">echo</span> Checking <span class="keyword">for</span> accelerate</span><br><span class="line"><span class="built_in">set</span> ACCELERATE=<span class="string">&quot;%VENV_DIR%\Scripts\accelerate.exe&quot;</span></span><br><span class="line"><span class="keyword">if</span> EXIST %ACCELERATE% goto :accelerate_launch</span><br><span class="line"></span><br><span class="line">:launch</span><br><span class="line">%PYTHON% launch.py %*</span><br><span class="line"><span class="keyword">if</span> EXIST tmp/restart goto :skip_venv</span><br><span class="line">pause</span><br><span class="line"><span class="built_in">exit</span> /b</span><br><span class="line"></span><br><span class="line">:accelerate_launch</span><br><span class="line"><span class="built_in">echo</span> Accelerating</span><br><span class="line">%ACCELERATE% launch --num_cpu_threads_per_process=6 launch.py</span><br><span class="line"><span class="keyword">if</span> EXIST tmp/restart goto :skip_venv</span><br><span class="line">pause</span><br><span class="line"><span class="built_in">exit</span> /b</span><br><span class="line"></span><br><span class="line">:show_stdout_stderr</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line"><span class="built_in">echo</span> <span class="built_in">exit</span> code: %errorlevel%</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> /f %%i <span class="keyword">in</span> (<span class="string">&quot;tmp\stdout.txt&quot;</span>) <span class="keyword">do</span> <span class="built_in">set</span> size=%%~zi</span><br><span class="line"><span class="keyword">if</span> %size% equ 0 goto :show_stderr</span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line"><span class="built_in">echo</span> stdout:</span><br><span class="line"><span class="built_in">type</span> tmp\stdout.txt</span><br><span class="line"></span><br><span class="line">:show_stderr</span><br><span class="line"><span class="keyword">for</span> /f %%i <span class="keyword">in</span> (<span class="string">&quot;tmp\stderr.txt&quot;</span>) <span class="keyword">do</span> <span class="built_in">set</span> size=%%~zi</span><br><span class="line"><span class="keyword">if</span> %size% equ 0 goto :show_stderr</span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line"><span class="built_in">echo</span> stderr:</span><br><span class="line"><span class="built_in">type</span> tmp\stderr.txt</span><br><span class="line"></span><br><span class="line">:endofscript</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line"><span class="built_in">echo</span> Launch unsuccessful. Exiting.</span><br><span class="line">pause</span><br></pre></td></tr></table></figure>
+
+    三.python venv 使用（后期可以用到）
+
+    cd stable-diffusion-webui
+    
+    run:
+    .\venv\Scripts\activate
+    执行完成后命令行提示符前 出现(venv) 说明已经是VENV环境了。
+
+    退出：
+    run: deactivate  
+    在命令行执行deactivate命令 
+
+    四.安装Stable diffusion + webui
+
+    cd stable-diffusion-webui
+    
+    run:
+    webui-user.bat
+
+    会自动创建VENV 目录开始安装Stable diffusion + webui
+    时间会很长..... 
+</code></pre>
+<h3 id="四-WARNING提示解决">四 WARNING提示解决</h3>
+<pre><code>WARNING-1：
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Creating venv <span class="keyword">in</span> directory G:\Program Files\stable-diffusion-webui\venv using python <span class="string">&quot;E:\Program Files\python310\python.exe&quot;</span></span><br><span class="line">venv <span class="string">&quot;G:\Program Files\stable-diffusion-webui\venv\Scripts\Python.exe&quot;</span></span><br><span class="line">Python 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]</span><br><span class="line">Version: v1.6.0</span><br><span class="line">......</span><br><span class="line">fatal: unable to access <span class="string">&#x27;https://github.com/Stability-AI/generative-models.git/&#x27;</span>: Recv failure: Connection was reset</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">File <span class="string">&quot;G:\Program Files\stable-diffusion-webui\launch.py&quot;</span>, line 48, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">main()</span><br><span class="line">File <span class="string">&quot;G:\Program Files\stable-diffusion-webui\launch.py&quot;</span>, line 39, <span class="keyword">in</span> main</span><br><span class="line">prepare_environment()</span><br><span class="line">File <span class="string">&quot;G:\Program Files\stable-diffusion-webui\modules\launch_utils.py&quot;</span>, line 381, <span class="keyword">in</span> prepare_environment</span><br><span class="line">git_clone(stable_diffusion_xl_repo, repo_dir(<span class="string">&#x27;generative-models&#x27;</span>), <span class="string">&quot;Stable Diffusion XL&quot;</span>, stable_diffusion_xl_commit_hash)</span><br><span class="line">File <span class="string">&quot;G:\Program Files\stable-diffusion-webui\modules\launch_utils.py&quot;</span>, line 186, <span class="keyword">in</span> git_clone</span><br><span class="line">run(f<span class="string">&#x27;&quot;&#123;git&#125;&quot; clone &quot;&#123;url&#125;&quot; &quot;&#123;dir&#125;&quot;&#x27;</span>, f<span class="string">&quot;Cloning &#123;name&#125; into &#123;dir&#125;...&quot;</span>, f<span class="string">&quot;Couldn&#x27;t clone &#123;name&#125;&quot;</span>, live=True)</span><br><span class="line">File <span class="string">&quot;G:\Program Files\stable-diffusion-webui\modules\launch_utils.py&quot;</span>, line 115, <span class="keyword">in</span> run</span><br><span class="line">raise RuntimeError(<span class="string">&quot;\n&quot;</span>.<span class="built_in">join</span>(error_bits))</span><br><span class="line">RuntimeError: Couldn<span class="string">&#x27;t clone Stable Diffusion XL.</span></span><br><span class="line"><span class="string">Command: &quot;git&quot; clone &quot;https://github.com/Stability-AI/generative-models.git&quot; &quot;G:\Program Files\stable-diffusion-webui\repositories\generative-models&quot;</span></span><br><span class="line"><span class="string">Error code: 128</span></span><br><span class="line"><span class="string">请按任意键继续. . .</span></span><br></pre></td></tr></table></figure>
+
+info:
+开一个新CMD 不要关闭
+PS C:\Users\aaa&gt; git config --global http.proxy
+PS C:\Users\aaa&gt; git config --global https.proxy
+
+
+WARNING2：
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">venv <span class="string">&quot;G:\Program Files\stable-diffusion-webui\venv\Scripts\Python.exe&quot;</span></span><br><span class="line">Python 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]</span><br><span class="line">Version: v1.6.0</span><br><span class="line">......</span><br><span class="line">Launching Web UI with arguments:</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">File <span class="string">&quot;G:\Program Files\stable-diffusion-webui\launch.py&quot;</span>, line 48, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    main()</span><br><span class="line">File <span class="string">&quot;G:\Program Files\stable-diffusion-webui\launch.py&quot;</span>, line 44, <span class="keyword">in</span> main</span><br><span class="line">    start()</span><br><span class="line">File <span class="string">&quot;G:\Program Files\stable-diffusion-webui\modules\launch_utils.py&quot;</span>, line 432, <span class="keyword">in</span> start</span><br><span class="line">    import webui</span><br><span class="line">File <span class="string">&quot;G:\Program Files\stable-diffusion-webui\webui.py&quot;</span>, line 13, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    initialize.imports()</span><br><span class="line">File <span class="string">&quot;G:\Program Files\stable-diffusion-webui\modules\initialize.py&quot;</span>, line 16, <span class="keyword">in</span> imports</span><br><span class="line">    import pytorch_lightning  <span class="comment"># noqa: F401</span></span><br><span class="line">ModuleNotFoundError: No module named <span class="string">&#x27;pytorch_lightning&#x27;</span></span><br><span class="line">请按任意键继续. . .</span><br></pre></td></tr></table></figure>
+
+info:
+
+cd stable-diffusion-webui&gt;
+
+.\venv\Scripts\activate  激活VENV
+
+pip install pytorch_lightning==1.9.4
+
+
+
+WARNING3：
+
+CUDA_SETUP: WARNING! libcudart.so not found in any environmental path. Searching in backup paths...
+不影响SD使用。强迫症患者
+
+info:
+解决办法：安装 bitsandbytes-windows
+在venv  下运行
+pip install bitsandbytes-windows
+
+安装成功，重新启动SD 即可。
+
+
+WARNING4：
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">No module <span class="string">&#x27;xformers&#x27;</span>. Proceeding without it.</span><br><span class="line">G:\Program Files\stable-diffusion-webui\venv\lib\site-packages\gradio\helpers.py:818: UserWarning: Using the update method is deprecated. Simply <span class="built_in">return</span> a new object instead, e.g. `<span class="built_in">return</span> gr.Textbox(...)` instead of `<span class="built_in">return</span> gr.update(...)</span><br><span class="line">warnings.warn(</span><br><span class="line">=============================================================================</span><br><span class="line">You are running gradio 3.45.2.</span><br><span class="line">The program is designed to work with gradio 3.41.2.</span><br><span class="line">Using a different version of gradio is extremely likely to <span class="built_in">break</span> the program.</span><br><span class="line"></span><br><span class="line">Reasons why you have the mismatched gradio version can be:</span><br><span class="line">- you use --skip-install flag.</span><br><span class="line">- you use webui.py to start the program instead of launch.py.</span><br><span class="line">- an extension installs the incompatible gradio version.</span><br><span class="line"></span><br><span class="line">Use --skip-version-check commandline argument to <span class="built_in">disable</span> this check.</span><br></pre></td></tr></table></figure>
+
+info:
+解决办法：安装xformers
+在venv  下运行
+pip install xformers
+</code></pre>
+<h3 id="五-启动参数说明-COMMANDLINE-ARGS">五 启动参数说明 COMMANDLINE_ARGS</h3>
+<pre><code>一.查看 COMMANDLINE_ARGS
+ cat .\webui-user.bat
+    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> PYTHON=</span><br><span class="line"><span class="built_in">set</span> GIT=</span><br><span class="line"><span class="built_in">set</span> VENV_DIR=</span><br><span class="line">::<span class="built_in">set</span> COMMANDLINE_ARGS=</span><br><span class="line"></span><br><span class="line">::<span class="built_in">set</span> COMMANDLINE_ARGS=--lowvram --xformers</span><br><span class="line"><span class="built_in">set</span> COMMANDLINE_ARGS=--lowvram --listen </span><br><span class="line"></span><br><span class="line">call webui.bat</span><br></pre></td></tr></table></figure>
+
+二.启动参数COMMANDLINE_ARGS说明：
+
+parser = argparse.ArgumentParser()
+parser.add_argument(&quot;-f&quot;, action='store_true', help=argparse.SUPPRESS)  # allows running as root; implemented outside of webui
+parser.add_argument(&quot;--update-all-extensions&quot;, action='store_true', help=&quot;launch.py argument: download updates for all extensions when starting the program&quot;)
+parser.add_argument(&quot;--skip-python-version-check&quot;, action='store_true', help=&quot;launch.py argument: do not check python version&quot;)
+parser.add_argument(&quot;--skip-torch-cuda-test&quot;, action='store_true', help=&quot;launch.py argument: do not check if CUDA is able to work properly&quot;)
+parser.add_argument(&quot;--reinstall-xformers&quot;, action='store_true', help=&quot;launch.py argument: install the appropriate version of xformers even if you have some version already installed&quot;)
+parser.add_argument(&quot;--reinstall-torch&quot;, action='store_true', help=&quot;launch.py argument: install the appropriate version of torch even if you have some version already installed&quot;)
+parser.add_argument(&quot;--update-check&quot;, action='store_true', help=&quot;launch.py argument: check for updates at startup&quot;)
+parser.add_argument(&quot;--test-server&quot;, action='store_true', help=&quot;launch.py argument: configure server for testing&quot;)
+parser.add_argument(&quot;--log-startup&quot;, action='store_true', help=&quot;launch.py argument: print a detailed log of what's happening at startup&quot;)
+parser.add_argument(&quot;--skip-prepare-environment&quot;, action='store_true', help=&quot;launch.py argument: skip all environment preparation&quot;)
+parser.add_argument(&quot;--skip-install&quot;, action='store_true', help=&quot;launch.py argument: skip installation of packages&quot;)
+parser.add_argument(&quot;--dump-sysinfo&quot;, action='store_true', help=&quot;launch.py argument: dump limited sysinfo file (without information about extensions, options) to disk and quit&quot;)
+parser.add_argument(&quot;--loglevel&quot;, type=str, help=&quot;log level; one of: CRITICAL, ERROR, WARNING, INFO, DEBUG&quot;, default=None)
+parser.add_argument(&quot;--do-not-download-clip&quot;, action='store_true', help=&quot;do not download CLIP model even if it's not included in the checkpoint&quot;)
+parser.add_argument(&quot;--data-dir&quot;, type=str, default=os.path.dirname(os.path.dirname(os.path.realpath(__file__))), help=&quot;base path where all user data is stored&quot;)
+parser.add_argument(&quot;--config&quot;, type=str, default=sd_default_config, help=&quot;path to config which constructs model&quot;,)
+parser.add_argument(&quot;--ckpt&quot;, type=str, default=sd_model_file, help=&quot;path to checkpoint of stable diffusion model; if specified, this checkpoint will be added to the list of checkpoints and loaded&quot;,)
+parser.add_argument(&quot;--ckpt-dir&quot;, type=str, default=None, help=&quot;Path to directory with stable diffusion checkpoints&quot;)
+parser.add_argument(&quot;--vae-dir&quot;, type=str, default=None, help=&quot;Path to directory with VAE files&quot;)
+parser.add_argument(&quot;--gfpgan-dir&quot;, type=str, help=&quot;GFPGAN directory&quot;, default=('./src/gfpgan' if os.path.exists('./src/gfpgan') else './GFPGAN'))
+parser.add_argument(&quot;--gfpgan-model&quot;, type=str, help=&quot;GFPGAN model file name&quot;, default=None)
+parser.add_argument(&quot;--no-half&quot;, action='store_true', help=&quot;do not switch the model to 16-bit floats&quot;)
+parser.add_argument(&quot;--no-half-vae&quot;, action='store_true', help=&quot;do not switch the VAE model to 16-bit floats&quot;)
+parser.add_argument(&quot;--no-progressbar-hiding&quot;, action='store_true', help=&quot;do not hide progressbar in gradio UI (we hide it because it slows down ML if you have hardware acceleration in browser)&quot;)
+parser.add_argument(&quot;--max-batch-count&quot;, type=int, default=16, help=&quot;maximum batch count value for the UI&quot;)
+parser.add_argument(&quot;--embeddings-dir&quot;, type=str, default=os.path.join(data_path, 'embeddings'), help=&quot;embeddings directory for textual inversion (default: embeddings)&quot;)
+parser.add_argument(&quot;--textual-inversion-templates-dir&quot;, type=str, default=os.path.join(script_path, 'textual_inversion_templates'), help=&quot;directory with textual inversion templates&quot;)
+parser.add_argument(&quot;--hypernetwork-dir&quot;, type=str, default=os.path.join(models_path, 'hypernetworks'), help=&quot;hypernetwork directory&quot;)
+parser.add_argument(&quot;--localizations-dir&quot;, type=str, default=os.path.join(script_path, 'localizations'), help=&quot;localizations directory&quot;)
+parser.add_argument(&quot;--allow-code&quot;, action='store_true', help=&quot;allow custom script execution from webui&quot;)
+parser.add_argument(&quot;--medvram&quot;, action='store_true', help=&quot;enable stable diffusion model optimizations for sacrificing a little speed for low VRM usage&quot;)
+parser.add_argument(&quot;--medvram-sdxl&quot;, action='store_true', help=&quot;enable --medvram optimization just for SDXL models&quot;)
+parser.add_argument(&quot;--lowvram&quot;, action='store_true', help=&quot;enable stable diffusion model optimizations for sacrificing a lot of speed for very low VRM usage&quot;)
+parser.add_argument(&quot;--lowram&quot;, action='store_true', help=&quot;load stable diffusion checkpoint weights to VRAM instead of RAM&quot;)
+parser.add_argument(&quot;--always-batch-cond-uncond&quot;, action='store_true', help=&quot;does not do anything&quot;)
+parser.add_argument(&quot;--unload-gfpgan&quot;, action='store_true', help=&quot;does not do anything.&quot;)
+parser.add_argument(&quot;--precision&quot;, type=str, help=&quot;evaluate at this precision&quot;, choices=[&quot;full&quot;, &quot;autocast&quot;], default=&quot;autocast&quot;)
+parser.add_argument(&quot;--upcast-sampling&quot;, action='store_true', help=&quot;upcast sampling. No effect with --no-half. Usually produces similar results to --no-half with better performance while using less memory.&quot;)
+parser.add_argument(&quot;--share&quot;, action='store_true', help=&quot;use share=True for gradio and make the UI accessible through their site&quot;)
+parser.add_argument(&quot;--ngrok&quot;, type=str, help=&quot;ngrok authtoken, alternative to gradio --share&quot;, default=None)
+parser.add_argument(&quot;--ngrok-region&quot;, type=str, help=&quot;does not do anything.&quot;, default=&quot;&quot;)
+parser.add_argument(&quot;--ngrok-options&quot;, type=json.loads, help='The options to pass to ngrok in JSON format, e.g.: \'&#123;&quot;authtoken_from_env&quot;:true, &quot;basic_auth&quot;:&quot;user:password&quot;, &quot;oauth_provider&quot;:&quot;google&quot;, &quot;oauth_allow_emails&quot;:&quot;user@asdf.com&quot;&#125;\'', default=dict())
+parser.add_argument(&quot;--enable-insecure-extension-access&quot;, action='store_true', help=&quot;enable extensions tab regardless of other options&quot;)
+parser.add_argument(&quot;--codeformer-models-path&quot;, type=str, help=&quot;Path to directory with codeformer model file(s).&quot;, default=os.path.join(models_path, 'Codeformer'))
+parser.add_argument(&quot;--gfpgan-models-path&quot;, type=str, help=&quot;Path to directory with GFPGAN model file(s).&quot;, default=os.path.join(models_path, 'GFPGAN'))
+parser.add_argument(&quot;--esrgan-models-path&quot;, type=str, help=&quot;Path to directory with ESRGAN model file(s).&quot;, default=os.path.join(models_path, 'ESRGAN'))
+parser.add_argument(&quot;--bsrgan-models-path&quot;, type=str, help=&quot;Path to directory with BSRGAN model file(s).&quot;, default=os.path.join(models_path, 'BSRGAN'))
+parser.add_argument(&quot;--realesrgan-models-path&quot;, type=str, help=&quot;Path to directory with RealESRGAN model file(s).&quot;, default=os.path.join(models_path, 'RealESRGAN'))
+parser.add_argument(&quot;--clip-models-path&quot;, type=str, help=&quot;Path to directory with CLIP model file(s).&quot;, default=None)
+parser.add_argument(&quot;--xformers&quot;, action='store_true', help=&quot;enable xformers for cross attention layers&quot;)
+parser.add_argument(&quot;--force-enable-xformers&quot;, action='store_true', help=&quot;enable xformers for cross attention layers regardless of whether the checking code thinks you can run it; do not make bug reports if this fails to work&quot;)
+parser.add_argument(&quot;--xformers-flash-attention&quot;, action='store_true', help=&quot;enable xformers with Flash Attention to improve reproducibility (supported for SD2.x or variant only)&quot;)
+parser.add_argument(&quot;--deepdanbooru&quot;, action='store_true', help=&quot;does not do anything&quot;)
+parser.add_argument(&quot;--opt-split-attention&quot;, action='store_true', help=&quot;prefer Doggettx's cross-attention layer optimization for automatic choice of optimization&quot;)
+parser.add_argument(&quot;--opt-sub-quad-attention&quot;, action='store_true', help=&quot;prefer memory efficient sub-quadratic cross-attention layer optimization for automatic choice of optimization&quot;)
+parser.add_argument(&quot;--sub-quad-q-chunk-size&quot;, type=int, help=&quot;query chunk size for the sub-quadratic cross-attention layer optimization to use&quot;, default=1024)
+parser.add_argument(&quot;--sub-quad-kv-chunk-size&quot;, type=int, help=&quot;kv chunk size for the sub-quadratic cross-attention layer optimization to use&quot;, default=None)
+parser.add_argument(&quot;--sub-quad-chunk-threshold&quot;, type=int, help=&quot;the percentage of VRAM threshold for the sub-quadratic cross-attention layer optimization to use chunking&quot;, default=None)
+parser.add_argument(&quot;--opt-split-attention-invokeai&quot;, action='store_true', help=&quot;prefer InvokeAI's cross-attention layer optimization for automatic choice of optimization&quot;)
+parser.add_argument(&quot;--opt-split-attention-v1&quot;, action='store_true', help=&quot;prefer older version of split attention optimization for automatic choice of optimization&quot;)
+parser.add_argument(&quot;--opt-sdp-attention&quot;, action='store_true', help=&quot;prefer scaled dot product cross-attention layer optimization for automatic choice of optimization; requires PyTorch 2.*&quot;)
+parser.add_argument(&quot;--opt-sdp-no-mem-attention&quot;, action='store_true', help=&quot;prefer scaled dot product cross-attention layer optimization without memory efficient attention for automatic choice of optimization, makes image generation deterministic; requires PyTorch 2.*&quot;)
+parser.add_argument(&quot;--disable-opt-split-attention&quot;, action='store_true', help=&quot;prefer no cross-attention layer optimization for automatic choice of optimization&quot;)
+parser.add_argument(&quot;--disable-nan-check&quot;, action='store_true', help=&quot;do not check if produced images/latent spaces have nans; useful for running without a checkpoint in CI&quot;)
+parser.add_argument(&quot;--use-cpu&quot;, nargs='+', help=&quot;use CPU as torch device for specified modules&quot;, default=[], type=str.lower)
+parser.add_argument(&quot;--disable-model-loading-ram-optimization&quot;, action='store_true', help=&quot;disable an optimization that reduces RAM use when loading a model&quot;)
+parser.add_argument(&quot;--listen&quot;, action='store_true', help=&quot;launch gradio with 0.0.0.0 as server name, allowing to respond to network requests&quot;)
+parser.add_argument(&quot;--port&quot;, type=int, help=&quot;launch gradio with given server port, you need root/admin rights for ports &lt; 1024, defaults to 7860 if available&quot;, default=None)
+parser.add_argument(&quot;--show-negative-prompt&quot;, action='store_true', help=&quot;does not do anything&quot;, default=False)
+parser.add_argument(&quot;--ui-config-file&quot;, type=str, help=&quot;filename to use for ui configuration&quot;, default=os.path.join(data_path, 'ui-config.json'))
+parser.add_argument(&quot;--hide-ui-dir-config&quot;, action='store_true', help=&quot;hide directory configuration from webui&quot;, default=False)
+parser.add_argument(&quot;--freeze-settings&quot;, action='store_true', help=&quot;disable editing settings&quot;, default=False)
+parser.add_argument(&quot;--ui-settings-file&quot;, type=str, help=&quot;filename to use for ui settings&quot;, default=os.path.join(data_path, 'config.json'))
+parser.add_argument(&quot;--gradio-debug&quot;,  action='store_true', help=&quot;launch gradio with --debug option&quot;)
+parser.add_argument(&quot;--gradio-auth&quot;, type=str, help='set gradio authentication like &quot;username:password&quot;; or comma-delimit multiple like &quot;u1:p1,u2:p2,u3:p3&quot;', default=None)
+parser.add_argument(&quot;--gradio-auth-path&quot;, type=str, help='set gradio authentication file path ex. &quot;/path/to/auth/file&quot; same auth format as --gradio-auth', default=None)
+parser.add_argument(&quot;--gradio-img2img-tool&quot;, type=str, help='does not do anything')
+parser.add_argument(&quot;--gradio-inpaint-tool&quot;, type=str, help=&quot;does not do anything&quot;)
+parser.add_argument(&quot;--gradio-allowed-path&quot;, action='append', help=&quot;add path to gradio's allowed_paths, make it possible to serve files from it&quot;, default=[data_path])
+parser.add_argument(&quot;--opt-channelslast&quot;, action='store_true', help=&quot;change memory type for stable diffusion to channels last&quot;)
+parser.add_argument(&quot;--styles-file&quot;, type=str, help=&quot;filename to use for styles&quot;, default=os.path.join(data_path, 'styles.csv'))
+parser.add_argument(&quot;--autolaunch&quot;, action='store_true', help=&quot;open the webui URL in the system's default browser upon launch&quot;, default=False)
+parser.add_argument(&quot;--theme&quot;, type=str, help=&quot;launches the UI with light or dark theme&quot;, default=None)
+parser.add_argument(&quot;--use-textbox-seed&quot;, action='store_true', help=&quot;use textbox for seeds in UI (no up/down, but possible to input long seeds)&quot;, default=False)
+parser.add_argument(&quot;--disable-console-progressbars&quot;, action='store_true', help=&quot;do not output progressbars to console&quot;, default=False)
+parser.add_argument(&quot;--enable-console-prompts&quot;, action='store_true', help=&quot;print prompts to console when generating with txt2img and img2img&quot;, default=False)
+parser.add_argument('--vae-path', type=str, help='Checkpoint to use as VAE; setting this argument disables all settings related to VAE', default=None)
+parser.add_argument(&quot;--disable-safe-unpickle&quot;, action='store_true', help=&quot;disable checking pytorch models for malicious code&quot;, default=False)
+parser.add_argument(&quot;--api&quot;, action='store_true', help=&quot;use api=True to launch the API together with the webui (use --nowebui instead for only the API)&quot;)
+parser.add_argument(&quot;--api-auth&quot;, type=str, help='Set authentication for API like &quot;username:password&quot;; or comma-delimit multiple like &quot;u1:p1,u2:p2,u3:p3&quot;', default=None)
+parser.add_argument(&quot;--api-log&quot;, action='store_true', help=&quot;use api-log=True to enable logging of all API requests&quot;)
+parser.add_argument(&quot;--nowebui&quot;, action='store_true', help=&quot;use api=True to launch the API instead of the webui&quot;)
+parser.add_argument(&quot;--ui-debug-mode&quot;, action='store_true', help=&quot;Don't load model to quickly launch UI&quot;)
+parser.add_argument(&quot;--device-id&quot;, type=str, help=&quot;Select the default CUDA device to use (export CUDA_VISIBLE_DEVICES=0,1,etc might be needed before)&quot;, default=None)
+parser.add_argument(&quot;--administrator&quot;, action='store_true', help=&quot;Administrator rights&quot;, default=False)
+parser.add_argument(&quot;--cors-allow-origins&quot;, type=str, help=&quot;Allowed CORS origin(s) in the form of a comma-separated list (no spaces)&quot;, default=None)
+parser.add_argument(&quot;--cors-allow-origins-regex&quot;, type=str, help=&quot;Allowed CORS origin(s) in the form of a single regular expression&quot;, default=None)
+parser.add_argument(&quot;--tls-keyfile&quot;, type=str, help=&quot;Partially enables TLS, requires --tls-certfile to fully function&quot;, default=None)
+parser.add_argument(&quot;--tls-certfile&quot;, type=str, help=&quot;Partially enables TLS, requires --tls-keyfile to fully function&quot;, default=None)
+parser.add_argument(&quot;--disable-tls-verify&quot;, action=&quot;store_false&quot;, help=&quot;When passed, enables the use of self-signed certificates.&quot;, default=None)
+parser.add_argument(&quot;--server-name&quot;, type=str, help=&quot;Sets hostname of server&quot;, default=None)
+parser.add_argument(&quot;--gradio-queue&quot;, action='store_true', help=&quot;does not do anything&quot;, default=True)
+parser.add_argument(&quot;--no-gradio-queue&quot;, action='store_true', help=&quot;Disables gradio queue; causes the webpage to use http requests instead of websockets; was the defaul in earlier versions&quot;)
+parser.add_argument(&quot;--skip-version-check&quot;, action='store_true', help=&quot;Do not check versions of torch and xformers&quot;)
+parser.add_argument(&quot;--no-hashing&quot;, action='store_true', help=&quot;disable sha256 hashing of checkpoints to help loading performance&quot;, default=False)
+parser.add_argument(&quot;--no-download-sd-model&quot;, action='store_true', help=&quot;don't download SD1.5 model even if no model is found in --ckpt-dir&quot;, default=False)
+parser.add_argument('--subpath', type=str, help='customize the subpath for gradio, use with reverse proxy')
+parser.add_argument('--add-stop-route', action='store_true', help='add /_stop route to stop server')
+parser.add_argument('--api-server-stop', action='store_true', help='enable server stop/restart/kill via api')
+parser.add_argument('--timeout-keep-alive', type=int, default=30, help='set timeout_keep_alive for uvicorn')
+parser.add_argument(&quot;--disable-all-extensions&quot;, action='store_true', help=&quot;prevent all extensions from running regardless of any other settings&quot;, default=False)
+parser.add_argument(&quot;--disable-extra-extensions&quot;, action='store_true', help=&quot; prevent all extensions except built-in from running regardless of any other settings&quot;, default=False)
+</code></pre>
+<h3 id="赞助广告">赞助广告</h3>
+<p><img src="https://gd3.alicdn.com/imgextra/i4/2200652270622/O1CN01JAQLRX1GSuy7uSs2Q_!!2200652270622.jpg" alt="秋冬欧美蓝白撞色条纹弹力打底衫"></p>
+<p><a target="_blank" rel="noopener" href="https://item.taobao.com/item.htm?id=625058323217">查看购买上图商品</a> <a target="_blank" rel="noopener" href="https://shop252294542.taobao.com/">淘宝店铺</a> <a target="_blank" rel="noopener" href="http://www.lxeridium.com/">品牌官网</a></p>
+<pre><code>感谢 lxeridium品牌赞助. 品牌官网：http://www.lxeridium.com 
+</code></pre>
+
+
+        <hr>
+        <!-- Pager -->
+        <ul class="pager">
+          
+          
+          <li class="next">
+            <a href="/cn/linuxsoftware-AppImage/" data-toggle="tooltip" data-placement="top" title="linuxsoftware-AppImage">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      如果您喜欢此博客或发现它对您有用，则欢迎对此发表评论。 也欢迎您共享此博客，以便更多人可以参与。 如果博客中使用的图像侵犯了您的版权，请与作者联系以将其删除。 谢谢 ！
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  <ul class="list-inline text-center social-share-ul">
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-twitter">
+        <i class="fa fa-twitter fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a class="social-share-icon icon-wechat">
+        <i class="fa fa-weixin fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-weibo">
+        <i class="fa fa-weibo fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-qq">
+        <i class="fa fa-qq fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=stable-diffusion-webui-inatall安装 for windows&body=Hi,I found this website and thought you might like it http://syboot.github.io/cn/stable-diffusion-webui-install安装/">
+        <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        
+        <hr>
+
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+
+<!-- 2. gitment comment -->
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
+        <hr>
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+
+
+      <!-- Sidebar Container -->
+      <div class="
+                col-lg-8 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">特色标签</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#stable-diffusion" title="stable-diffusion">stable-diffusion</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>链友</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="https://www.lxeridium.com/" target="_blank">lxeridium</a>
+          </li>
+          
+          <li>
+            <a href="https://www.cloudsmi.com/" target="_blank">cloudsmi</a>
+          </li>
+          
+          <li>
+            <a href="https://www.shkayan.com/" target="_blank">shkayan</a>
+          </li>
+          
+          <li>
+            <a href="https://hexo.io/" target="_blank">Hexo</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+		<!-- Footer (contains ThemeColor、viewer) -->
+		<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+
+          
+            <li>
+              <a target="_blank" href="https://github.com/syboot">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy;
+          syboot
+          2023
+          <br>
+          Theme by
+          <a target="_blank" rel="noopener" href="http://beantech.org">BeanTech</a>
+          <span style="display: inline-block; margin: 0 5px;">
+            <i class="fa fa-heart"></i>
+          </span>
+          re-Ported by
+          <a target="_blank" rel="noopener" href="https://v-vincen.life/">Live My Life</a>
+          |
+          re-Test by
+          <a href="https://syboot.github.io/">syboot</a>
+          <!-- <iframe style="margin-left: 2px; margin-bottom:-5px;" frameborder="0" scrolling="0" width="91px" height="20px" src="https://ghbtns.com/github-btn.html?user=V-Vincen&repo=V-Vincen.github.io&type=star&count=true"></iframe> -->
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="/js/hux-blog.min.js"></script>
+  <!-- catalog -->
+  <script async="true" type="text/javascript" src="/js/catalog.js"></script>
+  <!-- totop(rocket) -->
+  <script async="true" type="text/javascript" src="/js/totop.js"></script>
+
+  
+
+  
+    <!-- Scroll start -->
+    <script async="async" type="text/javascript" src="/js/scroll.js"></script>
+    <!-- Scroll end -->
+  
+
+  
+    <!-- LangSelect start -->
+    <script type="text/javascript" src="/js/langselect.js"></script>
+    <!-- LangSelect end -->
+  
+
+  
+    <!-- Mouseclick -->
+    <script type="text/javascript" src="/js/mouseclick.js" content='The first step is as good as half over...,Laugh and grow fat...,Man proposes God disposes...,When all else is lost the future still remains...,Wasting time is robbing oneself...,Sharp tools make good work...,Cease to struggle and you cease to live...,A friend in need is a friend indeed...,Faith can move mountains...' color='#9933CC,#339933,#66CCCC,#FF99CC,#CCCCFF,#6666CC,#663399,#66CC99,#FF0033'></script>
+  
+
+  
+    <!-- ribbon -->
+    <script type="text/javascript" src="/js/ribbonDynamic.js"></script>
+  
+
+  
+
+
+
+
+
+
+  <!-- viewer start -->
+  <!-- viewer start (Picture preview) -->
+  
+    <script async="async" type="text/javascript" src="/js/viewer/viewer.min.js"></script>
+    <script async="async" type="text/javascript" src="/js/viewer/pic-viewer.js"></script>
+  
+
+  <!-- viewer end -->
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  async ("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("http://syboot.github.io/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+		<!-- Search -->
+		
+		<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <!-- <div class="col-md-9 col-md-offset-1"> -->
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="搜索..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+    <script src="/js/ziploader.js"></script>
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.flv'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+            
+
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+		
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

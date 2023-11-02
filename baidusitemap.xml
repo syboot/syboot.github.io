@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://syboot.github.io/cn/stable-diffusion-webui-install%E5%AE%89%E8%A3%85/</loc>
+    <lastmod>2023-10-01</lastmod>
+  </url>
+  <url>
     <loc>http://syboot.github.io/cn/linuxsoftware-AppImage/</loc>
     <lastmod>2020-07-30</lastmod>
   </url>
